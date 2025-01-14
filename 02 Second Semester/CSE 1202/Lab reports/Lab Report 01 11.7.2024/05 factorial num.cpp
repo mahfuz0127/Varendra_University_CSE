@@ -1,0 +1,1 @@
+#include <iostream>using namespace std;int main() {    int num,fact=1,i;    cout << "Enter an Integer Number : ";    cin >> num;    for(i=1; i<=num; i++) {        fact *= i;    }    cout << endl << "Factorial of " << num << " is " << fact << endl;    return 0;}

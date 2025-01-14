@@ -1,0 +1,1 @@
+#include <iostream>using namespace std;int main() {    int num;    cout << "Enter an Integer Number : ";    cin >> num;    if(num%2==0) {        cout << endl << num << " is a Even Number " << endl;    } else {        cout << endl << num << " is a Odd Number " << endl;    }    return 0;}
