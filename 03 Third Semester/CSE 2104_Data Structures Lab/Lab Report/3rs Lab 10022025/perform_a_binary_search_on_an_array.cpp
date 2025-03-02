@@ -1,25 +1,39 @@
 #include<iostream>
 using namespace std;
 
-int main() {
-    int size,elem;
-
-    cout << "Enter array size:" ;
-    cin >> size;
-
-    int arr[size];
-
-    cout << "Enter array elements:" ;
-    for(int i=0; i<size ; i++){
-        cin >> arr[i] ;
-    }
-
-    cout << "Enter the element in array you wont to search:" ;
-    cin >> elem;
+int main(){
+    int n;
+    cout << "Enter a number : " ;
+    cin >> n ;
     
-    for(int i=0; i<size ; i++){
-        if(elem==arr[i]) cout << elem << " is found in index [" << i << "] " << endl;
+    int Data[n];
+    cout << "Enter the Array Elements : " ;
+    for(int i=0; i<n ; i++){
+        cin >> Data[i] ;
     }
+    
+    int beg=0;
+    int End=n-1;
+    int mid=int((beg+End)/2);
+    
+    int item,loc;
+    cout << "Enter number you want to search : " ;
+    cin >> item ;
+    
+    while(beg<=End && Data[mid]!=item){
+        if(item<Data[mid]){
+            End = mid-1;
+        }
+        else{
+            beg = mid+1;
+        }
+        mid = int((beg+End)/2);
+    }
+    
+    if(Data[mid]==item) loc=mid;
+    else loc = -1 ;
+    
+    cout << "location is :" << loc ;
 
     return 0;
 }
