@@ -1,0 +1,1 @@
+print(f"iterations = {i}, x = {x_new:.3f}, f(x) = {f(x_new):.3f}, absolute error = {ae:.3f}")
