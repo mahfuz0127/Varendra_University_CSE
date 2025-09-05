@@ -1,0 +1,155 @@
+def error_analysis(true_value, approx_value):
+    absolute_error = abs(true_value - approx_value)
+    relative_error = absolute_error / abs(true_value) if true_value != 0 else 0
+    relative_error_percentage = relative_error * 100
+    return absolute_error, relative_error, relative_error_percentage
+
+true_value = 3.14159
+approx_value = 3.14
+ae , re , rep  = error_analysis(true_value, approx_value)
+print(f"Absolute Error: {ae:.5f}")
+print(f"Relative Error: {re:.5f}")
+print(f"Relative Error Percentage: {rep:.5f}%")
+
+____________________________________________________________________
+
+def f(x):
+    return eval('x**3 - x - 2')
+
+a = float(input("Enter the lower bound (a): "))
+b = float(input("Enter the upper bound (b): "))
+
+fa = f(a)
+fb = f(b)
+
+def bisection_method(a, b, fa, fb, tol=0.01, max_iter=25):
+    if fa * fb > 0:
+        print("Bisection method fails. f(a) and f(b) should have opposite signs.")
+        return None
+
+    for iteration in range(1, max_iter + 1):
+        c = (a + b) / 2
+        fc = f(c)
+
+        approx_error = abs((b - a) / c) * 100
+
+        print(f"Iteration {iteration}: a = {a:.5f}, b = {b:.5f}, c = {c:.5f}, f(a)= {fa:.5f}, f(b)= {fb:.5f}, f(c) = {fc:.5f}, Approx. Error = {approx_error:.5f}%")
+
+        if approx_error < tol:
+            print(f"Converged to root {c:.5f} with approximate error {approx_error:.5f}% after {iteration} iterations.")
+            return c
+
+        if fa * fc < 0:
+            b = c
+        else:
+            a = c
+
+
+    print("Maximum iterations reached without convergence.")
+    return (a + b) / 2
+
+root = bisection_method(a, b, fa, fb)
+if root is not None:
+    print(f"Root found: {root:.5f}")
+
+______________________________________________________________________________________
+
+def f(x):
+    return eval('x**3 - x - 2')
+
+a = float(input("Enter the lower bound (a): "))
+b = float(input("Enter the upper bound (b): "))
+
+fa = f(a)
+fb = f(b)
+
+def false_position_method(a, b, fa, fb, tol=0.01, max_iter=10):
+    if fa * fb > 0:
+        print("False Position method fails. f(a) and f(b) should have opposite signs.")
+        return None
+
+    for iteration in range(1, max_iter + 1):
+        c = (a * fb - b * fa) / (fb - fa)
+        fc = f(c)
+
+        approx_error = abs((c - a) / c) * 100
+
+        print(f"Iteration {iteration}: a = {a:.5f}, b = {b:.5f}, c = {c:.5f}, f(a)= {fa:.5f}, f(b)= {fb:.5f}, f(c) = {fc:.5f}, Approx. Error = {approx_error:.5f}%")
+
+        if approx_error < tol:
+            print(f"Converged to root {c:.5f} with approximate error {approx_error:.5f}% after {iteration} iterations.")
+            return c
+
+        if fa * fc < 0:
+            b = c
+        else:
+            a = c
+
+    print("Maximum iterations reached without convergence.")
+    return (a * fb - b * fa) / (fb - fa)
+
+root = false_position_method(a, b, fa, fb)
+if root is not None:
+    print(f"Root found: {root:.5f}")
+
+____________________________________________________________________________
+
+def f(x):
+    return eval('x**3 - x - 2')
+
+def df(x):
+    return eval('3*x**2 - 1')
+
+def newton_raphson(f, df, x0, tol=0.01, max_iter=25):
+    if df(x0) == 0:
+        print("Derivative is zero. No solution found.")
+        return None
+    
+    x = x0
+    for i in range(1, max_iter + 1):
+        x_new = x - f(x) / df(x)
+        approx_error = abs((x_new - x) / x_new) * 100 if x_new != 0 else float('inf')
+        
+        print(f"Iteration {i}: x = {x_new:.5f}, f(x) = {f(x_new):.5f}, Approx. Error = {approx_error:.5f}%")
+        
+        if approx_error < tol:
+            print(f"Converged to root {x_new:.5f} with approximate error {approx_error:.5f}% after {i} iterations.")
+            return x_new
+        
+        x = x_new
+
+    print("Maximum iterations reached without convergence.")
+    return x
+
+x0 = float(input("Enter initial guess x0: "))
+root = newton_raphson(f, df, x0)
+if root is not None:
+    print(f"Root found: {root:.5f}")
+
+
+____________________________________________________________________________________________
+
+def f(x):
+    return eval('x**3 - x - 2')
+
+def secant_method(x0, x1, tol=1e-7, max_iter=100):
+    for iteration in range(max_iter):
+        if f(x1) - f(x0) == 0:
+            print("Division by zero encountered in secant method.")
+            return None
+        x2 = x1 - f(x1) * (x1 - x0) / (f(x1) - f(x0))
+        
+        print(f"Iteration {iteration+1:.3f}: x2 = {x2:.3f}, f(x2) = {f(x2):.3f}")
+        if abs(x2 - x1) < tol:
+            return x2
+        x0, x1 = x1, x2
+    print("Maximum iterations reached without convergence.")
+    return None
+
+x0 = float(input("Enter first initial guess (x0): "))
+x1 = float(input("Enter second initial guess (x1): "))
+root = secant_method( x0, x1)
+if root is not None:
+    print(f"Root found: {root:.3f}")
+
+_____________________________________________________________________________________________
