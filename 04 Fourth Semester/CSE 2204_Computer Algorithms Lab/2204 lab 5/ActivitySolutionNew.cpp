@@ -12,7 +12,6 @@ int main(){
     for(int i =0;i<n;i++){
         cout << "Activity " << i+1 << ": ";
         cin >> activities[i].second >> activities[i].first; 
-        //finish time stored in first for sorting purpose
     }
 
     sort(activities.begin(), activities.end());
