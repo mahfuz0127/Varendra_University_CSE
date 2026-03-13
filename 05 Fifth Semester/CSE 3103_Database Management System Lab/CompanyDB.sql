@@ -1,0 +1,63 @@
+﻿/* 1️⃣ Create Database (Server-level) */
+CREATE DATABASE CompanyDB;
+
+
+/* 2️⃣ Use the Database */
+USE CompanyDB;
+
+/* 3️⃣ Create WORKER Table with Constraints */
+CREATE TABLE WORKER (
+    WORKER_ID INT PRIMARY KEY,
+    FIRST_NAME VARCHAR(50) UNIQUE,
+    LAST_NAME VARCHAR(50),
+    SALARY INT CHECK (SALARY > 100),
+    DEPARTMENT VARCHAR(50)
+);
+
+/* 4️⃣ Insert Sample Data */
+INSERT INTO WORKER VALUES
+(1, 'Sanjoy', 'Das', 12000, 'Admin'),
+(2, 'Rahim', 'Khan', 9000, 'HR'),
+(3, 'Karim', 'Ali', 15000, 'Admin'),
+(4, 'Asad', 'Ullah', 8000, 'IT'),
+(5, 'Nabila', 'Islam', 11000, 'HR'),
+(6, 'Rafi', 'Hasan', 20000, 'Admin'),
+(7, 'Sumi', 'Akter', 9500, 'IT'),
+(8, 'Arif', 'Hossain', 30000, 'Finance');
+
+
+SELECT * FROM WORKER;
+
+/* 6 take avarage by department */
+SELECT DEPARTMENT, 
+		AVG(SALARY) AS AVERAGE_SALARY,
+		SUM(SALARY) AS TOTAL,
+		COUNT(SALARY) AS COUNTS,
+		MAX(SALARY) AS MAXIMUM,
+		MIN(SALARY) AS MINMIMUM
+FROM WORKER
+GROUP BY DEPARTMENT --FOR UNCONDITION COLLOM
+HAVING COUNT(WORKER_ID) > 0;
+
+SELECT * ,
+		ASCII(FIRST_NAME) AS ASCII_VALUS,
+		CHAR(97) AS CHARACTERS
+FROM WORKER
+--ORDER BY SALARY ASC;
+
+
+
+CREATE TABLE STUDENT_DETAILS (
+    STUDENT_ID INT PRIMARY KEY,
+    AGE INT,
+    RESULT VARCHAR(50),
+    STUDENT_PIN INT
+);
+
+INSERT INTO STUDENT_DETAILS 
+VALUES (101,22,HASHBYTES('SHA1','PASS'),1111)
+SELECT * FROM STUDENT_DETAILS;
+
+
+
+
