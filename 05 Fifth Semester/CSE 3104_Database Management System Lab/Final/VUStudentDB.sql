@@ -32,3 +32,35 @@ VALUES
 SELECT * FROM Student_Details;
 SELECT * FROM Student_Marks;
 
+--1. Write a query to create a view for those student belongs to the rajshahi.
+CREATE VIEW ST_BELONGS_RAJ AS
+SELECT * 
+FROM Student_Details S
+WHERE S.Address = 'Rajshahi' ;
+
+SELECT * FROM ST_BELONGS_RAJ;
+
+--2. write a query to create a view for all student Student_ID, CGPA
+CREATE VIEW ST_ID$CGPA AS
+SELECT Student_ID, CGPA
+FROM Student_Marks;
+
+SELECT * FROM ST_ID$CGPA;
+
+--3. Write a query to create a view to find student from dhaka whose cgpa more than 3.50
+CREATE VIEW ST_inDH_35 AS
+SELECT D.Student_ID, D.Name, D.Address, M.CGPA
+FROM Student_Details D
+JOIN Student_Marks M ON D.Student_ID=M.Student_ID
+WHERE D.Address = 'Dhaka'
+AND M.CGPA > 3.50;
+
+SELECT * FROM ST_inDH_35;
+
+-- CREATE A VIEW TO COUNT STUDENT ACORDING TO AGE
+CREATE VIEW ST_COUNT_AC2AGE AS
+SELECT Age, COUNT(*) AS TOTAL_ST
+FROM Student_Marks
+GROUP BY AGE;
+
+SELECT * FROM ST_COUNT_AC2AGE;
