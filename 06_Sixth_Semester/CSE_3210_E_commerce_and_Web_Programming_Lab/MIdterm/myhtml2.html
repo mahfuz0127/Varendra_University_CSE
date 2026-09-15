@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="mystyle.css">
+
+    <style>
+        p {
+            color: red;
+            color: #f71e1e;
+            color: rgb(0,0,255);
+            background-color: aqua;
+            background-image: url("bi.png");
+            background-repeat: ;
+            background-position: ;
+
+            font-family: Arial;
+            font-size: 10px;
+            font-style: normal;
+            font-weight: bold;
+            font-variant: ;
+            line-height: 1.5;
+
+
+            text-align: justify;
+            text-decoration: none;
+            text-transform: capitalize;
+            text-indent: 50px;
+
+            border-width: 2px;
+            border-style: dashed;
+            border-color: red;
+            border: 2px solid red;
+            border-radius: 10px;
+
+        }
+
+        .paragraph{
+            color: green;
+        }
+
+        h1,h2,h3{
+            color:red;
+            font-size: 20px;;
+        }
+
+        #heading3{
+            color: blue;
+            font-size:45px;
+        }
+
+        ul{
+            list-style-type: decimal;
+            list-style-image: ;
+        }
+
+        a:link{
+            text-decoration: none;
+            color:blueviolet;
+        }
+
+        a:hover{
+           background-color: #f71e1e; 
+           color: white;
+        }
+
+        a:active{
+            background-color: blue;
+            color:white;
+        }
+
+        a:visited{
+            color:black;
+        }
+        table{
+            border-collapse: collapse;
+        }
+        table,th,td{
+            border: 3px solid blue;
+        }
+        th{
+            background-color: rgb(248, 217, 217);
+        }
+        td{
+            text-align: center;
+            color: red;
+        }
+        tr:hover{
+            background-color: blanchedalmond;
+        }
+        tr:nth-child(even){
+            background-color: aquamarine;
+        }
+
+        div{
+            border: 1px solid blue;
+            width:50px;
+            height: 50px;
+            margin-left: 30px;
+            margin-top: 20px;
+            margin-bottom: 10px;
+            margin-right: 20px;
+            padding: 20px;
+            overflow: auto;
+            overflow-x: scroll;
+            overflow-y: scroll;
+    
+        }
+
+        div#fixed {
+        position: fixed;
+        bottom: 0;
+        right: 0;
+        width: 300px;
+        border: 3px solid #73AD21;
+        z-index: -1;
+        background-color: beige;
+        }
+
+        .fb{
+            height: 100px;
+            width: 100px;
+            margin: 10px;
+            border: 1px solid red;
+            display: none;
+        }
+
+        div.relative {
+        position: relative;
+        width: 400px;
+        height: 200px;
+        border: 3px solid green;
+        } 
+
+        div.absolute {
+        position: absolute;
+        top: 80px;
+        right: 0;
+        width: 200px;
+        height: 100px;
+        border: 3px solid red;
+        }
+    </style>
+</head>
+<body>
+
+    <h1>Heading 1</h1>
+    <h2>Heading 2</h2>
+    <h3>heading 3</h3>
+    <h3 id="heading3">heading 3-2</h3>
+    <br>
+    <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad commodi quas distinctio consectetur explicabo aspernatur esse labore quia ipsa tempore tempora itaque, provident excepturi et? Quidem expedita soluta optio laudantium.</p>
+
+    <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad commodi quas distinctio consectetur explicabo aspernatur esse labore quia ipsa tempore tempora itaque, provident excepturi et? Quidem expedita soluta optio laudantium.</p>
+
+    <p class="paragraph">Lorem ipsum dolor sit amet consectetur adipisicing elit. Ad commodi quas distinctio consectetur explicabo aspernatur esse labore quia ipsa tempore tempora itaque, provident excepturi et? Quidem expedita soluta optio laudantium.</p>
+
+    <p style="color: blue;">Lorem ipsum dolor sit amet consectetur adipisicing elit. Minus repellendus, eligendi ratione nostrum exercitationem nesciunt. Explicabo quas expedita aut voluptate labore sunt odit. Quod, consequuntur ipsam porro dolorem deserunt ut.</p>
+
+    <ul>
+        <li>Coffee</li>
+        <li>Tea</li>
+        <li>Coca Cola</li>
+    </ul>
+
+    <a href="https://www.w3schools.com/cssref/tryit.php?filename=trycss_list-style-image" target="_blank">This is a link</a> <br>
+
+    <img src="../img/sc.png" alt="" height="50">
+    <table border="1" width="50%">
+        <tr>
+            <th>Name</th>
+            <th>ID</th>
+            <th>Mobile</th>
+        </tr>
+
+        <tr>
+            <td>Mr A</td>
+            <td>112233</td>
+            <td>0171077777</td>
+        </tr>
+
+        <tr>
+            <td>Mr B</td>
+            <td>445566</td>
+            <td>0191077777</td>
+        </tr>
+
+        <tr>
+            <td>Mr B</td>
+            <td>445566</td>
+            <td>0191077777</td>
+        </tr>
+
+        <tr>
+            <td>Mr B</td>
+            <td>445566</td>
+            <td>0191077777</td>
+        </tr>
+    </table>
+    <br><br>
+
+    <table border="1" width="50%">
+        <tr>
+            <th>Name</th>
+            <td>Mr A</td>
+        </tr>
+
+        <tr>
+            <th>ID</th>
+            <td>564564564</td>
+        </tr>
+    </table>
+
+    <br><br>
+
+    <form action="" method="POST" enctype="multipart/form-data">
+        Name: <br>
+        <input type="text" name="fname" value="Mr" required> <br>
+        <input type="hidden" name="lname" value="A" required> <br>
+        Email: <br>
+        <input type="email" name="" value="" placeholder="Email" required> <br>
+        Mobile: <br>
+        <input type="number" name="" value=""> <br>
+        DOB: <br>
+        <input type="date" name="" value=""> <br>
+        Password: <br>
+        <input type="password" name="" value=""> <br>
+        Gender: <br>
+        <input type="radio" name="gender" value="" checked> Male
+        <input type="radio" name="gender" value=""> Female <br>
+        Courses: <br>
+        <input type="checkbox" name="cr[]" value="" checked> CSE 3210
+        <input type="checkbox" name="cr[]" value=""> CSE 3209 <br>
+        Document: <br>
+        <input type="file" name=""> <br>
+        address: <br>
+        <textarea name="" rows="5" cols="30"> </textarea> <br>
+        District: <br>
+        <select name="dist" >
+            <option>Select your district</option>
+            <option value="raj">Rajshahi</option>
+            <option value="dha">Dhaka</option>
+        </select> <br><br>
+
+        <input type="reset" value="clear">
+        <input type="submit" name="sub" value="Add">
+    </form>
+
+    <div id="fixed">
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Dolores vel adipisci magni a optio accusantium sunt omnis modi natus in vitae qui odit, ipsum similique laborum animi reprehenderit quidem nulla?
+    </div>
+
+    <div class="fb">
+        floating box 1
+    </div>
+
+    <div class="fb">
+        floating box 2
+    </div>
+
+    <div class="fb">
+        floating box 3
+    </div>
+
+    <div class="fb">
+        floating box 4
+    </div>
+
+    <div class="fb">
+        floating box 5
+    </div>
+
+    <div class="fb">
+        floating box 6
+    </div>
+
+    <div class="relative">
+        This div element has position: relative;
+        <div class="absolute">This div element has position: absolute;</div>
+    </div>
+    <!-- float,dropdown,navigation bar -->
+</body>
+</html>

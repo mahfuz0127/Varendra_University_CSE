@@ -1,6 +1,0 @@
-mkdir 
-touch
-ls -l
-chmod --> for change permission
-chmod u+x file.txt --> add execution user
-
