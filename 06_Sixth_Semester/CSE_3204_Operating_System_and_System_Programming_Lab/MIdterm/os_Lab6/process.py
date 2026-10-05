@@ -14,8 +14,3 @@ elif pid > 0:
     print("parent process rinning...")
     print(f"parent Largest number is: {max(number)}")
     os.waitpid(pid,0)
-   
-    
-
-
-
